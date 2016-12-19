@@ -1,0 +1,19 @@
+
+table{
+	width:250px;
+	height:150px;
+	margin:20px 50px 10px 50px;
+}
+table tr{
+	margin:10px 0px;
+}
+
+#bnt_login{
+	margin-left:120px;
+}
+
+label{
+	float:left;
+	margin-left:48px;
+	color:red;
+}

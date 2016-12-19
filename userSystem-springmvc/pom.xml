@@ -1,0 +1,154 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.yc</groupId>
+  <artifactId>userSystem-springmvc</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+
+   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit-version>4.12</junit-version>
+    <mybtis-version>3.4.1</mybtis-version>
+     <log4j-version>2.6.2</log4j-version>
+      <gson-version>2.3.1</gson-version>
+      <spring-version>4.3.2.RELEASE</spring-version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId> org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+     <version>${spring-version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    
+    <dependency>
+  	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-jdbc</artifactId>
+	  <version>4.3.2.RELEASE</version>
+	  <scope>runtime</scope>
+	</dependency>
+    
+     <dependency>
+  	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-webmvc</artifactId>
+	  <version>4.3.2.RELEASE</version>
+	  <scope>runtime</scope>
+	</dependency>
+	
+	<dependency>
+  	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-context-support</artifactId>
+	  <version>4.3.2.RELEASE</version>
+	  <scope>runtime</scope>
+	</dependency>
+	
+	<dependency>
+	  <groupId>com.fasterxml.jackson.core</groupId>
+	  <artifactId>jackson-databind</artifactId>
+	  <version>2.8.2</version>
+	  <scope>runtime</scope>
+	</dependency>
+    
+    <dependency>
+	  <groupId>com.hynnet</groupId>
+	  <artifactId>oracle-driver-ojdbc6</artifactId>
+	  <version>12.1.0.1</version>
+	  <scope>runtime</scope>
+	  <exclusions>
+	  	<exclusion>
+	  		<groupId>org.slf4j</groupId>
+	  		<artifactId>slf4j-api</artifactId>
+	  	</exclusion>
+	  </exclusions>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>1.3.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit-version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybtis-version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    
+    
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j-version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    
+     <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>${log4j-version}</version>
+      <scope>runtime</scope>
+     </dependency>
+    
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+      <scope>runtime</scope>
+    </dependency>
+    
+     <dependency>
+      <groupId>org.mybatis.caches</groupId>
+      <artifactId>mybatis-ehcache</artifactId>
+      <version>1.0.3</version>
+      <scope>runtime</scope>
+      <exclusions>
+      	<exclusion>
+      		<groupId>org.slf4j</groupId>
+      		<artifactId>slf4j-api</artifactId>
+      	</exclusion>
+      </exclusions>
+     </dependency>
+    
+     <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
+      <version>2.1.1</version>
+      <scope>runtime</scope>
+    </dependency>
+
+	<dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.38</version>
+    </dependency>
+    
+
+	<dependency>
+	  <groupId>org.aspectj</groupId>
+	  <artifactId>aspectjweaver</artifactId>
+	  <version>1.8.9</version>
+	  <scope>runtime</scope>
+	</dependency>
+
+	<dependency>
+	  <groupId>commons-fileupload</groupId>
+	  <artifactId>commons-fileupload</artifactId>
+	  <version>1.3.2</version>
+	  <scope>runtime</scope>
+	</dependency>
+  </dependencies>
+  <build>
+    <finalName>userSystem-springmvc</finalName>
+  </build>
+</project>

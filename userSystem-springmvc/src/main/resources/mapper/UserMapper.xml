@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间，与对应的对象的映射接口的全类名一致 -->
+
+<mapper  namespace="com.yc.userSystem.mapper.UserMapper">
+	 <!--<cache/><启动二级缓存 -->
+	
+	<!-- 引入第三方的二级缓存   ===》性能大大提高--> 
+	<!-- <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/> -->
+	
+	<!-- 定义sql变量 -->
+	
+	<sql id="selectProfile">
+		select * from profile
+	</sql>
+	<select id="findUser" parameterType="com.yc.userSystem.bean.UserBean" resultType="com.yc.userSystem.bean.UserBean">
+		
+		
+		
+		<include refid="selectProfile"/> where id=#{id} and name=#{name}	
+		
+	</select>
+										
+	 <select id="getAllUser" resultType="com.yc.userSystem.bean.UserBean">
+		<include refid="selectProfile"/> order by id 
+	</select> 
+	
+	<update id="updateUser" parameterType="com.yc.userSystem.bean.UserBean" flushCache="true">
+		update profile set name=#{name},birthday=#{birthday},gender=#{gender},career=#{career},address=#{address},mobile=#{mobile},picpath=#{picpath} where id=#{id}
+	</update>
+	
+	<resultMap type="com.yc.userSystem.bean.PaginationBean" id="selectPage">
+		<collection property="rows" column="{currIndex=currIndex,pageSize=pageSize" select="selecRows"></collection>
+	</resultMap>
+														
+	<select id="getUserByPagination" parameterType="com.yc.userSystem.bean.PaginationBean" resultMap="selectPage">
+		select count(1) total ,ceil(count(1)/${pageSize}) allPage,${pageSize} pageSize,${page} currPage,(${page}-1)*${pageSize} currIndex from profile
+	</select>
+	
+	<select id="selecRows" resultType="com.yc.userSystem.bean.UserBean">
+	
+		select * from profile limit ${currIndex} , ${pageSize}
+	</select>
+	
+	<select id="selectById" parameterType="int" resultType="com.yc.userSystem.bean.UserBean">
+		<include refid="selectProfile"/> where id=#{id}
+	</select>
+</mapper>
